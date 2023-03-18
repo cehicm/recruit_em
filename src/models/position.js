@@ -10,22 +10,7 @@ const PositionSchema = new mongoose.Schema(
 			type: String,
 			required: true,
 		},
-		status: [
-			{
-				Open: [
-					{
-						type: String,
-						required: true,
-					},
-				],
-				Closed: [
-					{
-						type: String,
-						required: true,
-					},
-				],
-			},
-		],
+		status: { type: String, required: true },
 		quiz: [
 			{
 				type: mongoose.Schema.Types.ObjectId,
