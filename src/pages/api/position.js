@@ -46,7 +46,7 @@ export default async function handler(req, res) {
 			try {
 				const positionId = req.body.id;
 				await Position.findOneAndDelete({ _id: positionId });
-				res.status(200);
+				res.status(200).json({ data: "deleted" });
 				return;
 			} catch (error) {
 				res.status(500).json({ error });

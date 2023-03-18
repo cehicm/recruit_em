@@ -46,7 +46,7 @@ export default async function handler(req, res) {
 			try {
 				const questionId = req.body.id;
 				await Question.findOneAndDelete({ _id: questionId });
-				res.status(200);
+				res.status(200).json({ data: "deleted" });
 				return;
 			} catch (error) {
 				res.status(500).json({ error });

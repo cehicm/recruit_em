@@ -41,7 +41,7 @@ export default async function handler(req, res) {
 			try {
 				const userId = req.body.id;
 				await User.findOneAndDelete({ _id: userId });
-				res.status(200);
+				res.status(200).json({ data: "deleted" });
 				return;
 			} catch (error) {
 				res.status(500).json({ error });
