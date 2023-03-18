@@ -6,9 +6,7 @@ const QuestionSchema = new mongoose.Schema(
 			type: String,
 		},
 		type: {
-			text: {
-				type: String,
-			}
+			type: String,
 		},
 	},
 	{ timestamps: true }

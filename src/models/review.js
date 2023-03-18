@@ -12,6 +12,19 @@ const ReviewSchema = new mongoose.Schema(
 			ref: "Position",
 			required: true,
 		},
+		answers: [
+			{
+				question: {
+					type: String,
+				},
+				id: {
+					type: String,
+				},
+				answer: {
+					type: String,
+				},
+			},
+		],
 		pipeline: { type: String, required: true },
 		status: { type: String, required: true },
 		started: { type: String, required: true },
