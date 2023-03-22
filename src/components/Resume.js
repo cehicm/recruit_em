@@ -18,7 +18,8 @@ function Resume() {
 				</p>
 			</div>
 			<Image
-				className="lg:w-1/2 lg:mx-auto lg:my-12 transition-opacity absolute"
+				className="lg:w-1/2 w-full lg:mx-auto lg:my-12 transition-opacity object-contain h-[600px] lg:h-[800px]"
+				height={600}
 				src={cvImage}
 				alt="John Doe resume"
 			/>
@@ -26,7 +27,7 @@ function Resume() {
 				onMouseEnter={() => setHover(true)}
 				onMouseLeave={() => setHover(false)}
 				onTouchMove={() => setHover(true)}
-				className={`absolute top-0 lg:w-1/2 top-[21rem] lg:top-[15rem] xl:top-[18.8rem] lg:left-[25%] transition-opacity ${
+				className={`object-contain h-[600px] lg:h-[800px] w-full absolute top-0 lg:w-1/2 top-[17rem] lg:top-[15rem] xl:top-[18.8rem] lg:left-[25%] transition-opacity ${
 					isHovered ? "opacity-0" : "opacity-1"
 				}`}
 				src={cvImage2}
