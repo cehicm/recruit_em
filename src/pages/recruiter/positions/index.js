@@ -32,7 +32,7 @@ export default function Positions(props) {
 								<p>{position.description}</p>
 								<Link
 									className="text-white bg-blue-700 rounded text-center w-full inline-block pt-2 pb-2"
-									href={`/recruiter/position/edit/${position._id}`}
+									href={`/recruiter/positions/edit/${position._id}`}
 								>
 									Edit Position
 								</Link>
