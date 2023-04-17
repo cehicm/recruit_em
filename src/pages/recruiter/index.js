@@ -10,7 +10,7 @@ export default function Recruiter(props) {
 				<meta name="viewport" content="initial-scale=1.0, width=device-width" />
 			</Head>
 			<div className="max-w-7xl mx-auto px-4 md:px-6">
-				<div className="pt-10 flex flex-col md:flex-row max-w-lg justify-between md:items-center mb-8 lg:mb-12 lg:mb-0">
+				<div className="pt-10 flex flex-col md:flex-row max-w-lg justify-between md:items-center mb-8 lg:mb-12">
 					<h1 className="text-5xl my-8 md:my-16">Dashboard</h1>
 
 					<Link
