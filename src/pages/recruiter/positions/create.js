@@ -1,10 +1,7 @@
-import React, { useState } from "react";
+import React from "react";
 import Head from "next/head";
 
 export default function CreatePosition(props) {
-	const initialInputValues = {
-		question1: "",
-	};
 
 	const submitForm = async e => {
 		e.preventDefault();
@@ -14,7 +11,6 @@ export default function CreatePosition(props) {
 		const status = e.target.status.value;
 		const quiz = e.target.quiz.value;
 
-		let questionArray = [];
 
 		if (name && description && status && quiz) {
 			var myHeaders = new Headers();
