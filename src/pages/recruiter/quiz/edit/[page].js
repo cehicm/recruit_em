@@ -1,4 +1,5 @@
 import { getSession } from "next-auth/react";
+import Head from "next/head";
 
 const updateQuiz = async e => {
 	e.preventDefault();
@@ -86,7 +87,16 @@ const getQuestion = async id => {
 export default function EditQuiz(props) {
 	return (
 		<>
-			<form method="POST" onSubmit={updateQuiz}>
+			<Head>
+				<title>Update Quiz</title>
+				<meta name="viewport" content="initial-scale=1.0, width=device-width" />
+			</Head>
+			<form
+				className="max-w-7xl mx-auto px-4 md:px-6"
+				method="POST"
+				onSubmit={updateQuiz}
+			>
+				<h1 className="text-5xl my-8 md:my-16">Update Quiz</h1>
 				<input type="hidden" name="id" defaultValue={props.quizId}></input>
 				<div>
 					<input type="text" name="name" defaultValue={props.name}></input>
@@ -106,25 +116,39 @@ export default function EditQuiz(props) {
 						defaultValue={props.description}
 					></textarea>
 				</div>
-				<button type="submit">Update Quiz</button>
+				<button
+					className="text-white bg-blue-700 rounded text-center w-full inline-block pt-2 pb-2"
+					type="submit"
+				>
+					Update Quiz
+				</button>
 			</form>
 
-			<div>
+			<div className="max-w-7xl mx-auto px-4 md:px-6">
 				<h3>Questions</h3>
 				{props.questions.length > 0 &&
-					props.questions.map(question => (
-						<form type="POST" onSubmit={updateQuestion} key={question[0]._id}>
+					props.questions.map((question, index) => (
+						<form
+							type="POST"
+							onSubmit={updateQuestion}
+							key={question[index]._id}
+						>
 							<input
 								type="hidden"
 								name="id"
-								defaultValue={question[0]._id}
+								defaultValue={question[index]._id}
 							></input>
 							<input
 								type="text"
 								name="question"
-								defaultValue={question[0].question}
+								defaultValue={question[index].question}
 							></input>
-							<button type="submit">Update Question</button>
+							<button
+								className="text-white bg-blue-700 rounded text-center w-full inline-block pt-2 pb-2"
+								type="submit"
+							>
+								Update Question
+							</button>
 						</form>
 					))}
 			</div>
