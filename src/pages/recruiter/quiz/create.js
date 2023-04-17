@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import FormGroup from "@/components/FormGroup";
+import Head from "next/head";
 
 export default function CreateQuiz() {
 	const initialInputValues = {
@@ -89,7 +90,16 @@ export default function CreateQuiz() {
 
 	return (
 		<>
-			<form method="POST" onSubmit={submitForm}>
+			<Head>
+				<title>New Quiz</title>
+				<meta name="viewport" content="initial-scale=1.0, width=device-width" />
+			</Head>
+			<form
+				className="max-w-7xl mx-auto px-4 md:px-6"
+				method="POST"
+				onSubmit={submitForm}
+			>
+				<h1 className="text-5xl my-8 md:my-16">New Quiz</h1>
 				<div>
 					<label htmlFor="name">Name</label>
 					<input required type="text" name="name" id="name"></input>
@@ -107,7 +117,11 @@ export default function CreateQuiz() {
 						id="description"
 					></textarea>
 				</div>
-				<button type="button" onClick={() => setQuestionNum(prev => prev + 1)}>
+				<button
+					className="text-white bg-blue-700 rounded text-center w-full inline-block pt-2 pb-2"
+					type="button"
+					onClick={() => setQuestionNum(prev => prev + 1)}
+				>
 					Add Question
 				</button>
 				<div id="questionList">
@@ -121,7 +135,12 @@ export default function CreateQuiz() {
 						/>
 					))}
 				</div>
-				<button type="submit">Save</button>
+				<button
+					className="text-white bg-blue-700 rounded text-center w-full inline-block pt-2 pb-2"
+					type="submit"
+				>
+					Save
+				</button>
 			</form>
 		</>
 	);
