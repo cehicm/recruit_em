@@ -1,5 +1,9 @@
+import RecruiterNavigation from "@/components/RecruiterNavigation";
 export default function Positions() {
-	return(
-		<>Positions</>
+	return (
+		<>
+			<RecruiterNavigation />
+			Positions
+		</>
 	);
 }
