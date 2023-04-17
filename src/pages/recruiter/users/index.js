@@ -1,5 +1,9 @@
+import RecruiterNavigation from "@/components/RecruiterNavigation";
 export default function Users() {
-	return(
-		<>Users</>
+	return (
+		<>
+			<RecruiterNavigation />
+			Users
+		</>
 	);
 }
