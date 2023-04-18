@@ -6,7 +6,7 @@ export default function Home() {
 
 	return (
 		<div className="bg-recruit-blue text-white">
-			<div className="px-2 md:px-6 py-6 md:py-0 flex items-center justify-between">
+			<div className="px-2 md:px-6 py-6 flex items-center justify-between">
 				<nav>
 					<ul className="flex gap-8">
 						<Link
