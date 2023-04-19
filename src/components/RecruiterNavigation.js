@@ -1,14 +1,30 @@
+import { useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/router";
+import { TfiAlignLeft, TfiClose } from "react-icons/tfi";
 
 export default function Home() {
 	const router = useRouter();
+	const [isNavOpen, setIsNavOpen] = useState(false);
 
 	return (
 		<div className="bg-recruit-blue text-white">
-			<div className="px-2 md:px-6 py-6 flex items-center justify-between">
+			<div className="px-2 md:px-6 py-6">
 				<nav>
-					<ul className="flex gap-8">
+					<TfiAlignLeft
+						className={`h-7 w-7 md:hidden ${isNavOpen ? "hidden" : "block"}`}
+						onClick={() => setIsNavOpen((prev) => !prev)}
+					/>
+					<TfiClose
+						className={`h-6 w-6 md:hidden ${isNavOpen ? "block" : "hidden"}`}
+						onClick={() => setIsNavOpen((prev) => !prev)}
+					/>
+
+					<ul
+						className={`flex flex-col items-center md:flex-row gap-8 ${
+							isNavOpen ? "block" : "hidden"
+						}`}
+					>
 						<Link
 							href="/recruiter/"
 							className={`${
