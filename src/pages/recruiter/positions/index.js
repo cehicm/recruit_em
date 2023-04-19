@@ -13,25 +13,34 @@ export default function Positions(props) {
 
 			<RecruiterNavigation />
 
-			<div className="max-w-7xl mx-auto px-4 md:px-6">
-				<div className="pt-10 flex flex-col md:flex-row max-w-lg justify-between md:items-center mb-8 lg:mb-12">
-					<h1 className="text-5xl my-8 md:my-16">Positions Dashboard</h1>
+			<div className="md:max-w-[89vw] lg:max-w-7xl mx-auto md:border border-blue-900 md:rounded-3xl md:h-screen relative md:mt-10">
+				<div className="md:pt-10 lg:mb-12 border border-blue-900 md:rounded-3xl bg-indigo-600 text-white text-center">
+					<h1 className="text-xl md:text-3xl text-5xl my-8 md:my-16">
+						Positions Dashboard
+					</h1>
+				</div>
 
+				<div className="max-w-7xl w-full left-1/2 flex justify-center">
 					<Link
-						className="text-white bg-blue-700 rounded px-8 py-4 text-center mb-5 md:mb-0"
-						href="/recruiter/positions/create"
+						className="md:absolute top-[190px] bg-white rounded-md border border-indigo-900 text-indigo-700 font-semibold py-5 md:py-2 px-8 mr-8 md:py-4 text-center my-8 md:my-0 md:mr-0 md:mb-0 hover:bg-indigo-900 hover:text-white text-sm"
+						href="/recruiter/quiz/create"
 					>
-						Create new Position
+						Add new position
 					</Link>
 				</div>
-				<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-5 pb-16">
+				<div className="grid grid-cols-1 lg:grid-cols-2 gap-5 mt-16 lg:mt-6 pb-16 w-[80%] mx-auto">
 					{props.positions.length > 0 &&
-						props.positions.map(position => (
-							<div className="px-6 py-4" key={position._id}>
-								<p>{position.name}</p>
-								<p>{position.description}</p>
+						props.positions.map((position) => (
+							<div
+								className="px-6 py-4 border border-indigo-900 grid grid-flow-col justify-between"
+								key={position._id}
+							>
+								<div>
+									<p className="font-bold">{position.name}</p>
+									<p>{position.description}</p>
+								</div>
 								<Link
-									className="text-white bg-blue-700 rounded text-center w-full inline-block pt-2 pb-2"
+									className="text-white bg-blue-700 rounded text-center w-full inline-block pt-2 pb-2 w-36"
 									href={`/recruiter/positions/edit/${position._id}`}
 								>
 									Edit Position
@@ -51,11 +60,11 @@ export async function getServerSideProps(context) {
 		method: "GET",
 		redirect: "follow",
 	})
-		.then(response => response.json())
-		.then(result => {
+		.then((response) => response.json())
+		.then((result) => {
 			return result.data;
 		})
-		.catch(error => console.log("error", error));
+		.catch((error) => console.log("error", error));
 
 	return {
 		props: {
