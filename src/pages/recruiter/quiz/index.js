@@ -13,32 +13,35 @@ export default function Quiz(props) {
 
 			<RecruiterNavigation />
 
-			<div className="max-w-[89vw] lg:max-w-7xl mx-auto px-4 md:px-6 border border-blue-900 rounded-3xl md:h-screen relative mt-10">
-				<div className="md:pt-10 mb-8 lg:mb-12 border border-blue-900 rounded-3xl bg-indigo-600 text-white text-center">
+			<div className="md:max-w-[89vw] lg:max-w-7xl mx-auto md:border border-blue-900 md:rounded-3xl md:h-screen relative md:mt-10">
+				<div className="md:pt-10 lg:mb-12 border border-blue-900 md:rounded-3xl bg-indigo-600 text-white text-center">
 					<h1 className="text-xl md:text-3xl text-5xl my-8 md:my-16">
 						Quiz Dashboard
 					</h1>
 				</div>
-				<div className="max-w-7xl w-full left-1/2 flex justify-center">
+				<div className="max-w-7xl w-full left-1/2 flex justify-end md:justify-center">
 					<Link
-						className="md:absolute top-[190px] bg-white rounded-md border border-indigo-900 text-indigo-900 font-semibold px-4 py-2 md:px-8 md:py-4 text-center mb-5 md:mb-0 hover:bg-indigo-900 hover:text-white text-sm"
+						className="md:absolute top-[190px] bg-white rounded-md border border-indigo-900 text-indigo-700 font-semibold py-5 md:py-2 px-8 mr-8 md:py-4 text-center my-8 md:my-0 md:mr-0 md:mb-0 hover:bg-indigo-900 hover:text-white text-sm"
 						href="/recruiter/quiz/create"
 					>
 						Create new Quiz
 					</Link>
 				</div>
-				<div className="grid lg:grid-cols-2 items-center md:pb-16 md:mt-10">
+				<div className="md:pb-4 md:mt-10 border border-t-0 border-l-0 border-r-0 border-t-indigo-900 md:border-t-white border-b-indigo-900 md:w-[80vw] mx-auto">
 					{props.quizzes.length > 0 &&
 						props.quizzes.map((quiz) => (
 							<div
-								className="px-6 py-4 border border-white border-b-indigo-900 mt-4 md:mt-7 flex flex-col gap-1"
+								className="px-6 py-6 md:pb-8 grid grid-flow-col gap-1 lg:w-3/4 mx-auto md:justify-between"
 								key={quiz._id}
 							>
-								<h3 className="text-xl">{quiz.name}</h3>
-								<p>{quiz.description}</p>
-								<p className="text-indigo-600">{quiz.duration} minutes</p>
+								<div>
+									<h3 className="text-xl">{quiz.name}</h3>
+									<p>{quiz.description}</p>
+									<p className="text-indigo-600">{quiz.duration} minutes</p>
+								</div>
+
 								<Link
-									className="text-white bg-blue-700 rounded text-center w-full inline-block py-2 mt-6 max-w-lg"
+									className="hover:animate-pulse self-start text-white bg-blue-700 rounded text-center md:w-56 inline-block py-2 px-10 lg:mt-6 md:mt-0 max-w-lg"
 									href={`/recruiter/quiz/edit/${quiz._id}`}
 								>
 									Edit Quiz
