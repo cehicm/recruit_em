@@ -8,7 +8,11 @@ export default function Home() {
 	const [isNavOpen, setIsNavOpen] = useState(false);
 
 	return (
-		<div className="bg-recruit-blue text-white">
+		<div
+			className={`bg-recruit-blue text-white ${
+				isNavOpen ? "h-screen absolute z-[22] w-full" : ""
+			}`}
+		>
 			<div className="px-2 md:px-6 py-6">
 				<nav>
 					<TfiAlignLeft
@@ -21,7 +25,7 @@ export default function Home() {
 					/>
 
 					<ul
-						className={`flex flex-col items-center md:flex-row gap-8 ${
+						className={`flex flex-col items-center md:flex-row gap-8 md:flex ${
 							isNavOpen ? "block" : "hidden"
 						}`}
 					>
