@@ -11,12 +11,6 @@ export default function Home() {
 			<Hero />
 			<Resume />
 			<OpenPositions />
-			<div>
-				<Link href="/candidate">Candidate</Link>
-			</div>
-			<div>
-				<Link href="/recruiter">Recruiter</Link>
-			</div>
 		</>
 	);
 }
