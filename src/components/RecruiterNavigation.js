@@ -40,7 +40,11 @@ export default function Home() {
 						<Link
 							href="/recruiter/quiz"
 							className={`${
-								router.pathname == "/recruiter/quiz" ? "font-semibold" : ""
+								router.pathname == "/recruiter/quiz" ||
+								"recruiter/quiz/edit" ||
+								"recruiter/quiz/create"
+									? "font-semibold"
+									: ""
 							} hover:font-semibold`}
 						>
 							Quizzes
