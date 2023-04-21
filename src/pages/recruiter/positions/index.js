@@ -32,7 +32,7 @@ export default function Positions(props) {
 					{props.positions.length > 0 &&
 						props.positions.map((position) => (
 							<div
-								className="px-6 py-4 border border-indigo-900 grid grid-flow-col justify-between"
+								className="px-6 py-4 border rounded border-indigo-900 grid grid-flow-col justify-between"
 								key={position._id}
 							>
 								<div>
@@ -40,7 +40,7 @@ export default function Positions(props) {
 									<p>{position.description}</p>
 								</div>
 								<Link
-									className="text-white bg-blue-700 rounded text-center w-full inline-block pt-2 pb-2 w-36"
+									className="text-white bg-blue-700 rounded text-center w-full inline-block py-2 px-4 w-36 flex items-center hover:bg-blue-900"
 									href={`/recruiter/positions/edit/${position._id}`}
 								>
 									Edit Position
