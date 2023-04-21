@@ -133,7 +133,7 @@ export default function EditQuiz(props) {
 				</button>
 			</form>
 
-			<div className="max-w-7xl md:px-12">
+			<div className="max-w-7xl md:px-12 flex flex-col gap-3 ml-5 md:ml-12 mt-6">
 				<h3 className="text-xl mb-8 underline">Questions</h3>
 				{props.questions.length > 0 &&
 					props.questions.map((question, index) => (
@@ -155,7 +155,7 @@ export default function EditQuiz(props) {
 								defaultValue={question[index].question}
 							></input>
 							<button
-								className="text-white bg-blue-700 rounded text-center w-full inline-block pt-2 pb-2 w-48"
+								className="text-white bg-blue-700 rounded text-center w-full inline-block pt-2 pb-2 w-64"
 								type="submit"
 							>
 								Update Question
