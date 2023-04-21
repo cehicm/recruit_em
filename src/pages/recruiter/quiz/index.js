@@ -19,15 +19,15 @@ export default function Quiz(props) {
 						Quiz Dashboard
 					</h1>
 				</div>
-				<div className="max-w-7xl w-full left-1/2 flex justify-end md:justify-center">
+				<div className="max-w-7xl w-full left-1/2 flex justify-center md:justify-end md:justify-center">
 					<Link
-						className="md:absolute top-[190px] bg-white rounded-md border border-indigo-900 text-indigo-700 font-semibold py-5 md:py-2 px-8 mr-8 md:py-4 text-center my-8 md:my-0 md:mr-0 md:mb-0 hover:bg-indigo-900 hover:text-white text-sm"
+						className="md:absolute top-[190px] bg-white rounded-md border border-indigo-900 text-indigo-700 font-semibold py-4 px-5 md:py-2 md:px-8 md:mr-8 md:py-4 text-center my-8 md:my-0 md:mr-0 md:mb-0 hover:bg-indigo-900 hover:text-white text-sm"
 						href="/recruiter/quiz/create"
 					>
 						Create new Quiz
 					</Link>
 				</div>
-				<div className="md:pb-4 md:mt-10 border border-t-0 border-l-0 border-r-0 border-t-indigo-900 md:border-t-white border-b-indigo-900 md:w-[80vw] mx-auto">
+				<div className="md:pb-4 md:mt-20 lg:mt-12 border border-t-0 border-l-0 border-r-0 border-t-indigo-900 md:border-t-white border-b-indigo-900 md:w-[80vw] mx-auto">
 					{props.quizzes.length > 0 &&
 						props.quizzes.map((quiz) => (
 							<div
