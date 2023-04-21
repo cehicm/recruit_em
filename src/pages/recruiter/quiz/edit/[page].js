@@ -100,7 +100,7 @@ export default function EditQuiz(props) {
 				</h1>
 				<input type="hidden" name="id" defaultValue={props.quizId}></input>
 
-				<div className="flex flex-col gap-3 ml-5 md:ml-12 md:mt-6">
+				<div className="flex flex-col gap-3 ml-5 md:ml-12 mt-6">
 					<input
 						className="text-lg border w-[350px] md:w-[400px] h-10 pl-3"
 						type="text"
@@ -109,7 +109,7 @@ export default function EditQuiz(props) {
 					></input>
 					<div>
 						<input
-							className="border w-[60px] h-10 md:pl-3"
+							className="border w-[60px] h-10 pl-3"
 							type="number"
 							name="duration"
 							defaultValue={props.duration}
@@ -117,7 +117,7 @@ export default function EditQuiz(props) {
 					</div>
 					<div>
 						<textarea
-							className="text-lg border w-[350px] md:w-[400px] h-10 pl-3 pt-3"
+							className="text-lg border w-[350px] h-32 md:w-[400px] h-10 pl-3 pt-3"
 							type="text"
 							name="description"
 							defaultValue={props.description}
@@ -126,7 +126,7 @@ export default function EditQuiz(props) {
 				</div>
 
 				<button
-					className="text-white bg-blue-700 rounded text-center w-full inline-block pt-2 pb-2 w-48 ml-5 md:ml-12 mb-8 md:mb-16"
+					className="text-white bg-blue-700 rounded text-center w-full inline-block pt-2 pb-2 w-48 ml-5 md:ml-12 mb-8 mt-8 md:mb-16 w-56"
 					type="submit"
 				>
 					Update Quiz
