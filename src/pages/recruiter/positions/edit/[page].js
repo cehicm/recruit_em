@@ -1,5 +1,6 @@
 import { getSession } from "next-auth/react";
 import Head from "next/head";
+import RecruiterNavigation from "@/components/RecruiterNavigation";
 
 const updatePosition = async (e) => {
 	e.preventDefault();
@@ -45,6 +46,8 @@ export default function EditPosition(props) {
 				<title>Update Position</title>
 				<meta name="viewport" content="initial-scale=1.0, width=device-width" />
 			</Head>
+			<RecruiterNavigation />
+
 			<h1 className="text-5xl py-8 md:py-16 bg-indigo-600 text-white text-center">
 				Edit Position
 			</h1>
