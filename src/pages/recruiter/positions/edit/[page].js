@@ -59,7 +59,7 @@ export default function EditPosition(props) {
 					defaultValue={props.position[0]._id}
 				></input>
 				<div className="h-12 flex gap-4 border border-black justify-around pl-2 mt-10">
-					<label className="text-xl w-1/2 flex items-center" htmlFor="name">
+					<label className="w-1/2 flex items-center" htmlFor="name">
 						Name
 					</label>
 					<input
@@ -87,13 +87,14 @@ export default function EditPosition(props) {
 				<div className="flex items-center gap-12 pl-2 w-1/2 mt-6">
 					<label htmlFor="status">Status</label>
 					<select
+						className="bg-gray-600 text-white px-5 py-2 rounded-md"
 						name="status"
 						id="status"
 						required
 						defaultValue={props.position[0].status}
 						multiple={false}
 					>
-						<option className="bg-green-500" value="enabled">
+						<option className="bg-green-500 b" value="enabled">
 							Enabled
 						</option>
 						<option value="disabled bg-red-500 hover:bg-red-700">
@@ -105,6 +106,7 @@ export default function EditPosition(props) {
 				<div className="flex items-center gap-16 pl-2 w-1/2 mt-6">
 					<label htmlFor="quiz">Quiz</label>
 					<select
+						className="bg-gray-600 text-white px-5 py-2 rounded-md"
 						name="quiz"
 						id="quiz"
 						required
@@ -120,7 +122,7 @@ export default function EditPosition(props) {
 					</select>
 				</div>
 				<button
-					className="mt-6 w-1/2 text-white bg-blue-700 rounded text-center inline-block pt-2 pb-2"
+					className="mt-6 w-1/2 text-white bg-blue-700 rounded text-center inline-block pt-2 pb-2 lg:mt-12"
 					type="submit"
 				>
 					Update Position
