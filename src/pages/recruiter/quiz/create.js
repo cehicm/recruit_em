@@ -1,13 +1,14 @@
 import React, { useState } from "react";
 import FormGroup from "@/components/FormGroup";
 import Head from "next/head";
+import RecruiterNavigation from "@/components/RecruiterNavigation";
 
 export default function CreateQuiz() {
 	const initialInputValues = {
 		question1: "",
 	};
 
-	const submitForm = async e => {
+	const submitForm = async (e) => {
 		e.preventDefault();
 		const SITE_URI = process.env.SITE_URI;
 		const name = e.target.name.value;
@@ -17,7 +18,7 @@ export default function CreateQuiz() {
 		let questionArray = [];
 
 		if (name && duration && description) {
-			const requests = Object.keys(values).map(async key => {
+			const requests = Object.keys(values).map(async (key) => {
 				const questionId = await saveQuestion(values[key]);
 				questionArray.push(questionId);
 			});
@@ -41,18 +42,18 @@ export default function CreateQuiz() {
 				};
 
 				fetch(SITE_URI + "/api/quiz", requestOptions)
-					.then(response => response.json())
-					.then(result => {
+					.then((response) => response.json())
+					.then((result) => {
 						if (result.data._id) {
 							console.log("New Quiz Created");
 						}
 					})
-					.catch(error => console.log("error", error));
+					.catch((error) => console.log("error", error));
 			});
 		}
 	};
 
-	const saveQuestion = async question => {
+	const saveQuestion = async (question) => {
 		const SITE_URI = process.env.SITE_URI;
 		var myHeaders = new Headers();
 		myHeaders.append("Content-Type", "application/json");
@@ -70,11 +71,11 @@ export default function CreateQuiz() {
 		};
 
 		const questionId = await fetch(SITE_URI + "/api/question", requestOptions)
-			.then(response => response.json())
-			.then(responseJson => {
+			.then((response) => response.json())
+			.then((responseJson) => {
 				return responseJson.data._id;
 			})
-			.catch(error => console.log("error", error));
+			.catch((error) => console.log("error", error));
 
 		return questionId;
 	};
@@ -82,7 +83,7 @@ export default function CreateQuiz() {
 	const [values, setValues] = useState(initialInputValues);
 	const [questionNum, setQuestionNum] = useState(1);
 
-	const handleInputChange = e => {
+	const handleInputChange = (e) => {
 		const { name, value } = e.target;
 
 		setValues({ ...values, [name]: value });
@@ -94,6 +95,8 @@ export default function CreateQuiz() {
 				<title>New Quiz</title>
 				<meta name="viewport" content="initial-scale=1.0, width=device-width" />
 			</Head>
+			<RecruiterNavigation />
+
 			<form
 				className="max-w-7xl mx-auto px-4 md:px-6"
 				method="POST"
@@ -120,7 +123,7 @@ export default function CreateQuiz() {
 				<button
 					className="text-white bg-blue-700 rounded text-center w-full inline-block pt-2 pb-2"
 					type="button"
-					onClick={() => setQuestionNum(prev => prev + 1)}
+					onClick={() => setQuestionNum((prev) => prev + 1)}
 				>
 					Add Question
 				</button>
