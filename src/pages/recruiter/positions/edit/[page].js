@@ -2,7 +2,7 @@ import { getSession } from "next-auth/react";
 import Head from "next/head";
 import RecruiterNavigation from "@/components/RecruiterNavigation";
 
-const updatePosition = async (e) => {
+const updatePosition = async e => {
 	e.preventDefault();
 
 	const id = e.target.id.value;
@@ -32,9 +32,9 @@ const updatePosition = async (e) => {
 	};
 
 	fetch(process.env.SITE_URI + "/api/position", requestOptions)
-		.then((response) => response.text())
-		.then((result) => console.log(result))
-		.catch((error) => console.log("error", error));
+		.then(response => response.text())
+		.then(result => console.log(result))
+		.catch(error => console.log("error", error));
 
 	console.log(id, name, status, description, quiz);
 };
@@ -97,12 +97,8 @@ export default function EditPosition(props) {
 						defaultValue={props.position[0].status}
 						multiple={false}
 					>
-						<option className="bg-green-500 b" value="enabled">
-							Enabled
-						</option>
-						<option value="disabled bg-red-500 hover:bg-red-700">
-							Disabled
-						</option>
+						<option value="enabled">Enabled</option>
+						<option value="disabled">Disabled</option>
 					</select>
 				</div>
 
@@ -117,7 +113,7 @@ export default function EditPosition(props) {
 						multiple={false}
 					>
 						{props.quizzes.length > 0 &&
-							props.quizzes.map((quiz) => (
+							props.quizzes.map(quiz => (
 								<option key={quiz._id} value={quiz._id}>
 									{quiz.name}
 								</option>
@@ -160,21 +156,21 @@ export async function getServerSideProps(context) {
 			process.env.SITE_URI + "/api/position?id=" + positionId,
 			requestOptions
 		)
-			.then((response) => response.json())
-			.then((result) => {
+			.then(response => response.json())
+			.then(result => {
 				return result.data;
 			})
-			.catch((error) => console.log("error", error));
+			.catch(error => console.log("error", error));
 
 		const quizzes = await fetch(process.env.SITE_URI + "/api/quiz", {
 			method: "GET",
 			redirect: "follow",
 		})
-			.then((response) => response.json())
-			.then((result) => {
+			.then(response => response.json())
+			.then(result => {
 				return result.data;
 			})
-			.catch((error) => console.log("error", error));
+			.catch(error => console.log("error", error));
 
 		return {
 			props: {
