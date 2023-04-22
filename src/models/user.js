@@ -27,14 +27,11 @@ const UserSchema = new mongoose.Schema(
 		role: {
 			type: String,
 			require: [true, "Select user role."],
-			default: "candidate"
+			default: "candidate",
 		},
 		position: {
 			type: mongoose.Schema.Types.ObjectId,
 			ref: "Position",
-		},
-		CV: {
-			type: String,
 		},
 	},
 	{ timestamps: true }
