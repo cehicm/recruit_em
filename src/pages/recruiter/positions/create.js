@@ -57,12 +57,8 @@ export default function CreatePosition(props) {
 						required
 						multiple={false}
 					>
-						<option className="bg-green-500 b" value="enabled">
-							Enabled
-						</option>
-						<option value="disabled bg-red-500 hover:bg-red-700">
-							Disabled
-						</option>
+						<option value="enabled">Enabled</option>
+						<option value="disabled">Disabled</option>
 					</select>
 				</div>
 
