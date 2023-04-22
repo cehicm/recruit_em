@@ -9,9 +9,15 @@ export default async function handler(req, res) {
 	switch (method) {
 		case "GET":
 			try {
-				const filter = req.query;
-				const users = await User.find(filter);
-				res.status(200).json({ data: users });
+				const id = req.query.id;
+
+				if (id) {
+					const users = await User.find({ _id: id });
+					res.status(200).json({ data: users });
+				} else {
+					const users = await User.find();
+					res.status(200).json({ data: users });
+				}
 			} catch (error) {
 				res.status(500).json({ error });
 			}
@@ -47,7 +53,7 @@ export default async function handler(req, res) {
 				res.status(500).json({ error });
 			}
 		default:
-			res.status(500).json({ error: 'Failed to fetch data' });
+			res.status(500).json({ error: "Failed to fetch data" });
 			break;
 	}
 }
