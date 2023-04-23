@@ -3,6 +3,8 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import { TfiAlignLeft, TfiClose } from "react-icons/tfi";
 import { VscActivateBreakpoints } from "react-icons/vsc";
+import { signIn, signOut, useSession } from "next-auth/react"
+
 
 export default function Home() {
 	const router = useRouter();
@@ -73,7 +75,7 @@ export default function Home() {
 					</ul>
 				</nav>
 
-				<Link href="#" className="flex items-center gap-2">
+				<Link href="#"  onClick={() => signOut()} className="flex items-center gap-2">
 					<VscActivateBreakpoints />
 					Log out
 				</Link>
