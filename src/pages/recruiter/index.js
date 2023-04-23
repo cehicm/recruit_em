@@ -21,47 +21,45 @@ export default function Recruiter(props) {
 
 			<RecruiterNavigation />
 
-			<div className="max-w-7xl mx-auto ">
-				<h1 className="text-5xl my-8 md:my-16 px-4 md:px-6">Dashboard</h1>
+			<div className="max-w-7xl mx-auto">
+				<h1 className="text-5xl py-8 md:py-16 px-4 md:px-6">Welcome</h1>
 
-				<div className="px-2 md:px-6">
-					<div className="flex flex-col items-center md:flex-row gap-2 md:flex text-lg font-bold">
-						<div className="h-24 pl-5 flex items-center gap-10 w-full bg-indigo-200">
-							<Link
-								href="/recruiter/quiz"
-								className="w-full flex items-center gap-4"
-							>
-								Your Quizzes
-								<VscOutput className="h-6 w-6 animate-bounce" />
-							</Link>
-						</div>
-						<div className="h-24 pl-5 flex items-center gap-10 w-full bg-indigo-300">
-							<Link
-								href="/recruiter/positions"
-								className="w-full flex items-center gap-4"
-							>
-								Open Positions
-								<VscReferences className="h-6 w-6 animate-bounce" />
-							</Link>
-						</div>
-						<div className="h-24 pl-5 flex items-center gap-10 w-full bg-indigo-400">
-							<Link
-								href="/recruiter/reviews"
-								className="w-full flex items-center gap-4"
-							>
-								Reviews
-								<VscStarFull className="h-6 w-6 animate-spin" />
-							</Link>
-						</div>
-						<div className="h-24 pl-5 flex items-center gap-10 w-full bg-indigo-500">
-							<Link
-								href="/recruiter/users"
-								className="w-full flex items-center gap-4"
-							>
-								Users
-								<VscPerson className="h-6 w-6 animate-bounce" />
-							</Link>
-						</div>
+				<div className="grid md:grid-cols-2 items-center  gap-2 text-lg font-bold px-2 md:px-6">
+					<div className="h-24 md:h-32 lg:h-96 w-64 pl-5 lg:pl-0 lg:text-center flex items-center gap-10 w-full bg-indigo-200">
+						<Link
+							href="/recruiter/quiz"
+							className="w-full flex items-center gap-4 justify-center"
+						>
+							Your Quizzes
+							<VscOutput className="h-6 w-6 animate-bounce lg:animate-none lg:hover-animate-bounce" />
+						</Link>
+					</div>
+					<div className="h-24 md:h-32 lg:h-96 w-64 pl-5 lg:pl-0 lg:text-center flex items-center gap-10 w-full bg-indigo-400">
+						<Link
+							href="/recruiter/positions"
+							className="w-full flex items-center gap-4 justify-center"
+						>
+							Open Positions
+							<VscReferences className="h-6 w-6 animate-bounce lg:animate-none lg:hover-animate-bounce" />
+						</Link>
+					</div>
+					<div className="h-24 md:h-32 lg:h-96 w-64 pl-5 lg:pl-0 lg:text-center flex items-center gap-10 w-full bg-indigo-400">
+						<Link
+							href="/recruiter/reviews"
+							className="w-full flex items-center gap-4 justify-center"
+						>
+							Reviews
+							<VscStarFull className="h-6 w-6 animate-spin lg:animate-none lg:hover-animate-spin" />
+						</Link>
+					</div>
+					<div className="h-24 md:h-32 lg:h-96 w-64 pl-5 lg:pl-0 lg:text-center flex items-center gap-10 w-full bg-indigo-200">
+						<Link
+							href="/recruiter/users"
+							className="w-full flex items-center gap-4 justify-center"
+						>
+							Users
+							<VscPerson className="h-6 w-6 animate-bounce lg:animate-none lg:hover-animate-bounce" />
+						</Link>
 					</div>
 				</div>
 			</div>
