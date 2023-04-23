@@ -9,7 +9,7 @@ function OpenPosition({
 			<h3 className="text-2xl">{positionTitle}</h3>
 			<p>{positionShortDescription}</p>
 			<Link
-				className="bg-white text-black p-4 self-center mt-7 rounded-lg"
+				className="bg-white text-black p-4 self-center mt-7 rounded-lg hover:bg-indigo-800 hover:text-white"
 				href={positionLink}
 			>
 				Apply now{" "}
