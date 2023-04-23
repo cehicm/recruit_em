@@ -2,6 +2,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { TfiAlignLeft, TfiClose } from "react-icons/tfi";
+import { VscActivateBreakpoints } from "react-icons/vsc";
 
 export default function Home() {
 	const router = useRouter();
@@ -13,7 +14,7 @@ export default function Home() {
 				isNavOpen ? "h-screen absolute z-[22] w-full" : ""
 			}`}
 		>
-			<div className="px-2 md:px-6 py-6">
+			<div className="px-2 md:px-6 py-6 flex justify-between max-w-7xl mx-auto">
 				<nav>
 					<TfiAlignLeft
 						className={`h-7 w-7 md:hidden ${isNavOpen ? "hidden" : "block"}`}
@@ -71,6 +72,11 @@ export default function Home() {
 						</Link>
 					</ul>
 				</nav>
+
+				<Link href="#" className="flex items-center gap-2">
+					<VscActivateBreakpoints />
+					Log out
+				</Link>
 			</div>
 		</div>
 	);
