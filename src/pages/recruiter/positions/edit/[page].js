@@ -2,7 +2,7 @@ import { getSession } from "next-auth/react";
 import Head from "next/head";
 import RecruiterNavigation from "@/components/RecruiterNavigation";
 
-const updatePosition = async e => {
+const updatePosition = async (e) => {
 	e.preventDefault();
 
 	const id = e.target.id.value;
@@ -32,9 +32,9 @@ const updatePosition = async e => {
 	};
 
 	fetch(process.env.SITE_URI + "/api/position", requestOptions)
-		.then(response => response.text())
-		.then(result => console.log(result))
-		.catch(error => console.log("error", error));
+		.then((response) => response.text())
+		.then((result) => console.log(result))
+		.catch((error) => console.log("error", error));
 
 	console.log(id, name, status, description, quiz);
 };
@@ -61,8 +61,8 @@ export default function EditPosition(props) {
 					name="id"
 					defaultValue={props.position[0]._id}
 				></input>
-				<div className="h-12 flex gap-4 border border-black justify-around pl-2 mt-10">
-					<label className="w-1/2 flex items-center" htmlFor="name">
+				<div className="h-12 flex gap-4 border border-black md:justify-around pl-2 mt-10">
+					<label className="w-24 md:w-1/2 flex items-center" htmlFor="name">
 						Name
 					</label>
 					<input
@@ -74,8 +74,8 @@ export default function EditPosition(props) {
 						defaultValue={props.position[0].name}
 					></input>
 				</div>
-				<div className="flex items-center gap-4 border border-black border-t-0 justify-around pl-2">
-					<label className="w-1/2" htmlFor="description">
+				<div className="flex items-center gap-4 border border-black border-t-0 md:justify-around pl-2">
+					<label className="w-24 md:w-1/2" htmlFor="description">
 						Description
 					</label>
 					<textarea
@@ -113,7 +113,7 @@ export default function EditPosition(props) {
 						multiple={false}
 					>
 						{props.quizzes.length > 0 &&
-							props.quizzes.map(quiz => (
+							props.quizzes.map((quiz) => (
 								<option key={quiz._id} value={quiz._id}>
 									{quiz.name}
 								</option>
@@ -156,21 +156,21 @@ export async function getServerSideProps(context) {
 			process.env.SITE_URI + "/api/position?id=" + positionId,
 			requestOptions
 		)
-			.then(response => response.json())
-			.then(result => {
+			.then((response) => response.json())
+			.then((result) => {
 				return result.data;
 			})
-			.catch(error => console.log("error", error));
+			.catch((error) => console.log("error", error));
 
 		const quizzes = await fetch(process.env.SITE_URI + "/api/quiz", {
 			method: "GET",
 			redirect: "follow",
 		})
-			.then(response => response.json())
-			.then(result => {
+			.then((response) => response.json())
+			.then((result) => {
 				return result.data;
 			})
-			.catch(error => console.log("error", error));
+			.catch((error) => console.log("error", error));
 
 		return {
 			props: {
