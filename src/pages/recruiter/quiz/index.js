@@ -27,7 +27,7 @@ export default function Quiz(props) {
 						Create new Quiz
 					</Link>
 				</div>
-				<div className="md:pb-4 md:mt-20 lg:mt-12 border border-t-0 border-l-0 border-r-0 border-t-indigo-900 md:border-t-white border-b-indigo-900 md:w-[80vw] mx-auto">
+				<div className="md:pb-4 md:mt-20 lg:mt-12 border border-t-0 border-l-0 border-r-0 border-t-indigo-900 md:border-t-white border-b-indigo-900 md:w-[80vw] lg:max-w-7xl mx-auto">
 					{props.quizzes.length > 0 &&
 						props.quizzes.map((quiz) => (
 							<div

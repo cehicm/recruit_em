@@ -26,7 +26,7 @@ export default function Users(props) {
 						Create new User
 					</Link>
 				</div>
-				<div className="grid grid-cols-1 lg:grid-cols-2 gap-5 mt-16 lg:mt-6 pb-16 mx-2 md:mx-auto md:w-[80%]">
+				<div className="grid grid-cols-1 gap-5 mt-16 lg:mt-6 pb-16 mx-2 md:mx-auto md:w-[80%] lg:w-[70%]">
 					{props.users.length > 0 &&
 						props.users.map((user) => (
 							<div
