@@ -9,6 +9,7 @@ import {
 	VscOutput,
 	VscReferences,
 	VscStarFull,
+	VscRocket,
 } from "react-icons/vsc";
 
 export default function Recruiter(props) {
@@ -24,12 +25,21 @@ export default function Recruiter(props) {
 			<RecruiterNavigation />
 
 			<div className="max-w-7xl mx-auto">
-				<h1 className="text-2xl md:text-4xl py-8 md:py-16 mx-10 md:px-12">
-					Welcome,
-					<span className="pl-2 text-indigo-500">
-						{props.firstName} {props.lastName}
-					</span>
-				</h1>
+				<div className="flex justify-around max-w-7xl px-2 md:px-12 lg:mb-16 mx-8">
+					<h1 className="text-2xl md:text-4xl py-8 md:py-16">
+						Welcome,
+						<span className="pl-2 text-indigo-500">
+							{props.firstName} {props.lastName}
+						</span>
+					</h1>
+
+					<Link
+						className="flex items-center gap-2 justify-center"
+						href="/recruiter/profile"
+					>
+						Your profile <VscRocket />
+					</Link>
+				</div>
 
 				<div className="grid md:grid-cols-2 items-center gap-2 text-lg font-bold px-2 md:px-12 lg:mb-16 mx-8">
 					<Link
