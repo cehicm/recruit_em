@@ -14,7 +14,7 @@ export default function Home() {
 				isNavOpen ? "h-screen absolute z-[22] w-full" : ""
 			}`}
 		>
-			<div className="px-8 md:px-6 py-6 flex lg:justify-between max-w-7xl mx-auto">
+			<div className="px-8 md:px-12 py-6 flex lg:justify-between max-w-7xl mx-auto">
 				<nav
 					className={`flex flex-row justify-between w-full ${
 						isNavOpen ? "flex-col" : "flex-row"
@@ -30,7 +30,7 @@ export default function Home() {
 					/>
 
 					<ul
-						className={`flex flex-col items-center mx-auto md:flex-row gap-8 md:flex ${
+						className={`flex flex-col items-center mx-auto md:mx-0 md:flex-row gap-8 md:flex ${
 							isNavOpen ? "block" : "hidden"
 						}`}
 					>
