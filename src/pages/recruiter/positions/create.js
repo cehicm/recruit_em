@@ -2,7 +2,7 @@ import Head from "next/head";
 import RecruiterNavigation from "@/components/RecruiterNavigation";
 import { getSession } from "next-auth/react";
 
-const savePosition = async e => {
+const savePosition = async (e) => {
 	e.preventDefault();
 };
 
@@ -19,7 +19,7 @@ export default function CreatePosition(props) {
 				Edit Position
 			</h1>
 			<form
-				className="max-w-7xl mx-auto px-4 md:px-6 flex flex-col"
+				className="max-w-7xl mx-auto px-8 flex flex-col"
 				method="POST"
 				onSubmit={savePosition}
 			>
@@ -72,7 +72,7 @@ export default function CreatePosition(props) {
 						multiple={false}
 					>
 						{props.quizzes.length > 0 &&
-							props.quizzes.map(quiz => (
+							props.quizzes.map((quiz) => (
 								<option key={quiz._id} value={quiz._id}>
 									{quiz.name}
 								</option>
@@ -97,11 +97,11 @@ export async function getServerSideProps(context) {
 		method: "GET",
 		redirect: "follow",
 	})
-		.then(response => response.json())
-		.then(result => {
+		.then((response) => response.json())
+		.then((result) => {
 			return result.data;
 		})
-		.catch(error => console.log("error", error));
+		.catch((error) => console.log("error", error));
 
 	return {
 		props: {

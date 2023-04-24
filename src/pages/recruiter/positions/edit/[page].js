@@ -52,7 +52,7 @@ export default function EditPosition(props) {
 				Edit Position
 			</h1>
 			<form
-				className="max-w-7xl mx-auto px-4 md:px-6 flex flex-col"
+				className="max-w-7xl mx-auto px-8 flex flex-col"
 				method="POST"
 				onSubmit={updatePosition}
 			>
