@@ -14,8 +14,12 @@ export default function Home() {
 				isNavOpen ? "h-screen absolute z-[22] w-full" : ""
 			}`}
 		>
-			<div className="px-2 md:px-6 py-6 flex justify-between max-w-7xl mx-auto">
-				<nav>
+			<div className="px-8 md:px-6 py-6 flex lg:justify-between max-w-7xl mx-auto">
+				<nav
+					className={`flex flex-row justify-between w-full ${
+						isNavOpen ? "flex-col" : "flex-row"
+					}`}
+				>
 					<TfiAlignLeft
 						className={`h-7 w-7 md:hidden ${isNavOpen ? "hidden" : "block"}`}
 						onClick={() => setIsNavOpen((prev) => !prev)}
@@ -26,7 +30,7 @@ export default function Home() {
 					/>
 
 					<ul
-						className={`flex flex-col items-center md:flex-row gap-8 md:flex ${
+						className={`flex flex-col items-center mx-auto md:flex-row gap-8 md:flex ${
 							isNavOpen ? "block" : "hidden"
 						}`}
 					>
@@ -71,12 +75,16 @@ export default function Home() {
 							Users
 						</Link>
 					</ul>
+					<Link
+						href="#"
+						className={`flex items-center gap-2 self-center ${
+							isNavOpen ? "hidden" : "block"
+						}`}
+					>
+						<VscActivateBreakpoints />
+						Log out
+					</Link>
 				</nav>
-
-				<Link href="#" className="flex items-center gap-2">
-					<VscActivateBreakpoints />
-					Log out
-				</Link>
 			</div>
 		</div>
 	);
