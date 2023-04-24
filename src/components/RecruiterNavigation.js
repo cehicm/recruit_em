@@ -3,6 +3,7 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import { TfiAlignLeft, TfiClose } from "react-icons/tfi";
 import { VscActivateBreakpoints } from "react-icons/vsc";
+import { signIn, signOut, useSession } from "next-auth/react";
 
 export default function Home() {
 	const router = useRouter();
@@ -77,6 +78,7 @@ export default function Home() {
 					</ul>
 					<Link
 						href="#"
+						onClick={() => signOut()}
 						className={`flex items-center gap-2 self-center ${
 							isNavOpen ? "hidden" : "block"
 						}`}
