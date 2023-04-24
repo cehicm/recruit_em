@@ -26,9 +26,9 @@ export default function Users(props) {
 						Create new User
 					</Link>
 				</div>
-				<div className="grid grid-cols-1 lg:grid-cols-2 gap-5 mt-16 lg:mt-6 pb-16 w-[80%] mx-auto">
+				<div className="grid grid-cols-1 lg:grid-cols-2 gap-5 mt-16 lg:mt-6 pb-16 mx-2 md:mx-auto md:w-[80%]">
 					{props.users.length > 0 &&
-						props.users.map(user => (
+						props.users.map((user) => (
 							<div
 								className="px-6 py-4 border rounded border-indigo-900 grid grid-flow-col justify-between"
 								key={user._id}
@@ -61,11 +61,11 @@ export async function getServerSideProps(context) {
 		method: "GET",
 		redirect: "follow",
 	})
-		.then(response => response.json())
-		.then(result => {
+		.then((response) => response.json())
+		.then((result) => {
 			return result.data;
 		})
-		.catch(error => console.log("error", error));
+		.catch((error) => console.log("error", error));
 
 	return {
 		props: {
