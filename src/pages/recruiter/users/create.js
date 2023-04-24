@@ -4,7 +4,7 @@ import RecruiterNavigation from "@/components/RecruiterNavigation";
 import { getSession } from "next-auth/react";
 
 export default function CreateUser(props) {
-	const submitForm = async e => {
+	const submitForm = async (e) => {
 		e.preventDefault();
 		const SITE_URI = process.env.SITE_URI;
 		const firstName = e.target.firstName.value;
@@ -35,13 +35,13 @@ export default function CreateUser(props) {
 			};
 
 			fetch(SITE_URI + "/api/users", requestOptions)
-				.then(response => response.json())
-				.then(result => {
+				.then((response) => response.json())
+				.then((result) => {
 					if (result.data._id) {
 						console.log("New User Created");
 					}
 				})
-				.catch(error => console.log("error", error));
+				.catch((error) => console.log("error", error));
 		}
 	};
 
@@ -54,7 +54,7 @@ export default function CreateUser(props) {
 			<RecruiterNavigation />
 
 			<form
-				className="max-w-7xl mx-auto px-4 md:px-6"
+				className="max-w-7xl mx-auto px-4 md:px-12"
 				method="POST"
 				onSubmit={submitForm}
 			>
@@ -103,7 +103,7 @@ export default function CreateUser(props) {
 						multiple={false}
 					>
 						{props.positions.length > 0 &&
-							props.positions.map(position => (
+							props.positions.map((position) => (
 								<option key={position._id} value={position._id}>
 									{position.name}
 								</option>
@@ -129,11 +129,11 @@ export async function getServerSideProps(context) {
 		method: "GET",
 		redirect: "follow",
 	})
-		.then(response => response.json())
-		.then(result => {
+		.then((response) => response.json())
+		.then((result) => {
 			return result.data;
 		})
-		.catch(error => console.log("error", error));
+		.catch((error) => console.log("error", error));
 
 	return {
 		props: {

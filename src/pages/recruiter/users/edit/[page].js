@@ -4,7 +4,7 @@ import RecruiterNavigation from "@/components/RecruiterNavigation";
 import { getSession } from "next-auth/react";
 
 export default function EditUser(props) {
-	const submitForm = async e => {
+	const submitForm = async (e) => {
 		e.preventDefault();
 
 		const id = e.target.id.value;
@@ -36,9 +36,9 @@ export default function EditUser(props) {
 		};
 
 		fetch(process.env.SITE_URI + "/api/users", requestOptions)
-			.then(response => response.text())
-			.then(result => console.log(result))
-			.catch(error => console.log("error", error));
+			.then((response) => response.text())
+			.then((result) => console.log(result))
+			.catch((error) => console.log("error", error));
 	};
 
 	return (
@@ -50,7 +50,7 @@ export default function EditUser(props) {
 			<RecruiterNavigation />
 
 			<form
-				className="max-w-7xl mx-auto px-4 md:px-6"
+				className="max-w-7xl mx-auto px-4 md:px-12"
 				method="POST"
 				onSubmit={submitForm}
 			>
@@ -115,7 +115,7 @@ export default function EditUser(props) {
 						defaultValue={props.user.position}
 					>
 						{props.positions.length > 0 &&
-							props.positions.map(position => (
+							props.positions.map((position) => (
 								<option key={position._id} value={position._id}>
 									{position.name}
 								</option>
@@ -158,21 +158,21 @@ export async function getServerSideProps(context) {
 			process.env.SITE_URI + "/api/users?id=" + userId,
 			requestOptions
 		)
-			.then(response => response.json())
-			.then(result => {
+			.then((response) => response.json())
+			.then((result) => {
 				return result.data[0];
 			})
-			.catch(error => console.log("error", error));
+			.catch((error) => console.log("error", error));
 
 		const positions = await fetch(process.env.SITE_URI + "/api/position", {
 			method: "GET",
 			redirect: "follow",
 		})
-			.then(response => response.json())
-			.then(result => {
+			.then((response) => response.json())
+			.then((result) => {
 				return result.data;
 			})
-			.catch(error => console.log("error", error));
+			.catch((error) => console.log("error", error));
 
 		return {
 			props: {
