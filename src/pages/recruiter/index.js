@@ -24,8 +24,11 @@ export default function Recruiter(props) {
 			<RecruiterNavigation />
 
 			<div className="max-w-7xl mx-auto">
-				<h1 className="text-5xl py-8 md:py-16 px-4 md:px-12">
-					Welcome {props.firstName} {props.lastName}
+				<h1 className="text-2xl md:text-4xl py-8 md:py-16 px-4 md:px-12">
+					Welcome,
+					<span className="pl-2 text-indigo-500">
+						{props.firstName} {props.lastName}
+					</span>
 				</h1>
 
 				<div className="grid md:grid-cols-2 items-center gap-2 text-lg font-bold px-2 md:px-12">
