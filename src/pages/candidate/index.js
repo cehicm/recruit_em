@@ -1,4 +1,5 @@
 import { getSession } from "next-auth/react";
+import Link from "next/link";
 
 export default function Candidate(props) {
 	return (
@@ -14,7 +15,9 @@ export default function Candidate(props) {
 							<p>Created at: {position.createdAt}</p>
 							<p>Description: {position.description}</p>
 							{position.quiz.length > 0 &&
-								position.quiz.map(quiz => <p key={quiz}>Quiz: {quiz}</p>)}
+								position.quiz.map(quiz => (
+									<Link key={quiz} href={`/candidate/quiz/${quiz}`}>Start Quiz</Link>
+								))}
 						</div>
 					))}
 			</div>
