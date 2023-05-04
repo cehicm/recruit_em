@@ -61,12 +61,12 @@ export default function EditPosition(props) {
 					name="id"
 					defaultValue={props.position[0]._id}
 				></input>
-				<div className="h-12 flex gap-4 border border-black md:justify-around pl-2 mt-10">
-					<label className="w-24 md:w-1/2 flex items-center" htmlFor="name">
+				<div className="h-12 flex gap-4 border border-black pl-2 mt-10">
+					<label className="w-36 flex items-center" htmlFor="name">
 						Name
 					</label>
 					<input
-						className="pl-2 border-black border-l text-gray-600 italic w-1/2"
+						className="pl-12 border-black border-l text-gray-600 italic w-full"
 						required
 						type="text"
 						name="name"
@@ -74,12 +74,12 @@ export default function EditPosition(props) {
 						defaultValue={props.position[0].name}
 					></input>
 				</div>
-				<div className="flex items-center gap-4 border border-black border-t-0 md:justify-around pl-2">
-					<label className="w-24 md:w-1/2" htmlFor="description">
+				<div className="flex items-center gap-4 border border-black border-t-0 pl-2">
+					<label className="w-36" htmlFor="description">
 						Description
 					</label>
 					<textarea
-						className="py-2 pl-2 border-black border-l text-gray-600 italic w-1/2"
+						className="pb-0 pt-5 pl-12 border-black border-l text-gray-600 italic w-full"
 						required
 						type="text"
 						name="description"
@@ -87,10 +87,12 @@ export default function EditPosition(props) {
 						defaultValue={props.position[0].description}
 					></textarea>
 				</div>
-				<div className="flex items-center gap-12 pl-2 w-1/2 mt-6">
-					<label htmlFor="status">Status</label>
+				<div className="bg-gray-600 flex items-center gap-12 pl-2 w-1/2 mt-10">
+					<label className="text-white" htmlFor="status">
+						Status
+					</label>
 					<select
-						className="bg-gray-600 text-white px-5 py-2 rounded-md"
+						className="bg-gray-600 text-white px-4 py-2 rounded-md w-32"
 						name="status"
 						id="status"
 						required
@@ -102,8 +104,10 @@ export default function EditPosition(props) {
 					</select>
 				</div>
 
-				<div className="flex items-center gap-16 pl-2 w-1/2 mt-6">
-					<label htmlFor="quiz">Quiz</label>
+				<div className="bg-gray-600 flex items-center gap-16 pl-2 w-1/2 mt-6">
+					<label className="text-white" htmlFor="quiz">
+						Quiz
+					</label>
 					<select
 						className="bg-gray-600 text-white px-5 py-2 rounded-md"
 						name="quiz"
@@ -121,7 +125,7 @@ export default function EditPosition(props) {
 					</select>
 				</div>
 				<button
-					className="mt-6 w-1/2 text-white bg-blue-700 rounded text-center inline-block pt-2 pb-2 lg:mt-12"
+					className="mt-8 w-1/2 text-white bg-blue-700 rounded text-center inline-block pt-2 pb-2 lg:mt-12"
 					type="submit"
 				>
 					Update Position
