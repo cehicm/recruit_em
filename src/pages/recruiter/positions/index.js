@@ -28,7 +28,7 @@ export default function Positions(props) {
 						Add new position
 					</Link>
 				</div>
-				<div className="grid grid-cols-1 gap-5 mt-16 lg:mt-6 pb-16 mx-6 md:mx-auto md:w-[80%] mx-auto">
+				<div className="grid grid-cols-1 gap-5 mt-16 lg:mt-6 pb-16 mx-6 md:mx-auto md:w-[80%]">
 					{props.positions.length > 0 &&
 						props.positions.map((position) => (
 							<div
