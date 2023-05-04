@@ -16,17 +16,16 @@ export default function FormGroup(props, { innerRef }) {
 
 	return (
 		<div>
-			<div>
-				<label htmlFor={id}>{label}</label>
-				<input
-					required
-					id={id}
-					name={name}
-					type={type}
-					value={value}
-					onChange={onChange}
-				/>
-			</div>
+			<label htmlFor={id}>{label}</label>
+			<input
+				className="border border-indigo-800 border-1 ml-5 w-[60vw] mb-6"
+				required
+				id={id}
+				name={name}
+				type={type}
+				value={value}
+				onChange={onChange}
+			/>
 		</div>
 	);
 }
