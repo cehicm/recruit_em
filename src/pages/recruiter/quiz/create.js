@@ -97,53 +97,69 @@ export default function CreateQuiz() {
 			</Head>
 			<RecruiterNavigation />
 
-			<form
-				className="max-w-7xl mx-auto px-4 md:px-12"
-				method="POST"
-				onSubmit={submitForm}
-			>
-				<h1 className="text-5xl my-8 md:my-16">New Quiz</h1>
-				<div>
-					<label htmlFor="name">Name</label>
-					<input required type="text" name="name" id="name"></input>
+			<form method="POST" onSubmit={submitForm}>
+				<div className="md:pt-10 lg:mb-12 border border-blue-900 md:rounded-3xl bg-indigo-600 text-white text-center">
+					<h1 className="text-xl md:text-3xl text-5xl my-8 md:my-16">
+						New Quiz
+					</h1>
 				</div>
-				<div>
-					<label htmlFor="duration">Duration</label>
-					<input required type="number" name="duration" id="duration"></input>
+
+				<div className="max-w-7xl mx-auto px-4 md:px-12 mt-12">
+					<div>
+						<label htmlFor="name">Name</label>
+						<input
+							className="border border-indigo-800 border-1 ml-14 w-[60vw]"
+							required
+							type="text"
+							name="name"
+							id="name"
+						></input>
+					</div>
+					<div className="mt-6">
+						<label htmlFor="duration">Duration</label>
+						<input
+							className="border border-indigo-800 border-1 ml-10 w-[60vw]"
+							required
+							type="number"
+							name="duration"
+							id="duration"
+						></input>
+					</div>
+					<div className="my-6">
+						<label htmlFor="description">Description</label>
+						<textarea
+							className="border border-indigo-800 border-1 ml-5 w-[60vw]"
+							required
+							type="text"
+							name="description"
+							id="description"
+						></textarea>
+					</div>
+					<button
+						className="text-white bg-blue-700 rounded text-center w-64 inline-block pt-2 pb-2 mt-3"
+						type="button"
+						onClick={() => setQuestionNum((prev) => prev + 1)}
+					>
+						Add Question
+					</button>
+					<div className="mt-12 mb-5" id="questionList">
+						{Array.from({ length: questionNum }, (_, i, ind = i + 1) => (
+							<FormGroup
+								key={i}
+								label={`Question ${ind}`}
+								name={`question${ind}`}
+								value={values[`question${ind}`] || ""}
+								onChange={handleInputChange}
+							/>
+						))}
+					</div>
+					<button
+						className="text-white bg-blue-700 rounded text-center w-64 inline-block pt-2 pb-2"
+						type="submit"
+					>
+						Save
+					</button>
 				</div>
-				<div>
-					<label htmlFor="description">Description</label>
-					<textarea
-						required
-						type="text"
-						name="description"
-						id="description"
-					></textarea>
-				</div>
-				<button
-					className="text-white bg-blue-700 rounded text-center w-full inline-block pt-2 pb-2"
-					type="button"
-					onClick={() => setQuestionNum((prev) => prev + 1)}
-				>
-					Add Question
-				</button>
-				<div id="questionList">
-					{Array.from({ length: questionNum }, (_, i, ind = i + 1) => (
-						<FormGroup
-							key={i}
-							label={`Question ${ind}`}
-							name={`question${ind}`}
-							value={values[`question${ind}`] || ""}
-							onChange={handleInputChange}
-						/>
-					))}
-				</div>
-				<button
-					className="text-white bg-blue-700 rounded text-center w-full inline-block pt-2 pb-2"
-					type="submit"
-				>
-					Save
-				</button>
 			</form>
 		</>
 	);
