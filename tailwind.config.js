@@ -36,12 +36,23 @@ module.exports = {
 					"0%, 100%": { transform: "translateY(-400px)" },
 					"50%": { transform: "translateY(0)" },
 				},
+
+				topTransform: {
+					"0%, 100%": { transform: "translateY(0)" },
+					"50%": { transform: "translateY(30%)" },
+				},
+				rightTransform: {
+					"0%, 100%": { transform: "translateX(0)" },
+					"50%": { transform: "translateX(-30%)" },
+				},
 			},
 			animation: {
 				wiggle: "wiggle 1s ease-in-out infinite",
 				carousel: "carousel 8s ease-in-out infinite",
 				carouselTwo: "carouselTwo 5s ease-in-out infinite",
 				carouselThree: "carouselThree 5s ease-in-out infinite",
+				topTransform: "topTransform 5s ease-in-out infinite",
+				rightTransform: "rightTransform 5s ease-in-out infinite",
 			},
 		},
 	},
