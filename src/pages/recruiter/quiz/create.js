@@ -105,60 +105,70 @@ export default function CreateQuiz() {
 				</div>
 
 				<div className="max-w-7xl mx-auto px-4 md:px-12 mt-12">
-					<div>
-						<label htmlFor="name">Name</label>
-						<input
-							className="border border-indigo-800 border-1 ml-14 w-[60vw] max-w-[300px]"
-							required
-							type="text"
-							name="name"
-							id="name"
-						></input>
+					<div className="grid grid-cols-2 gap-5 items-center justify-center w-4/5 mx-auto">
+						<div className="flex flex-col items-center">
+							<label htmlFor="name">Name</label>
+							<input
+								className="border border-indigo-800 border-1 w-[60vw] max-w-[250px]"
+								required
+								type="text"
+								name="name"
+								id="name"
+							></input>
+						</div>
+						<div className="flex flex-col items-center">
+							<label htmlFor="duration">Duration</label>
+							<input
+								className="border border-indigo-800 border-1 w-[60vw] max-w-[250px]"
+								required
+								type="number"
+								name="duration"
+								id="duration"
+							></input>
+						</div>
+						<div className="flex flex-col items-center">
+							<label htmlFor="description">Description</label>
+							<textarea
+								className="border border-indigo-800 border-1 ml-5 w-[60vw] max-w-[300px]"
+								required
+								type="text"
+								name="description"
+								id="description"
+							></textarea>
+						</div>
+
+						<div
+							className="mt-12 mb-5 row-start-3 col-span-2"
+							id="questionList"
+						>
+							<div className="flex items-center mb-8 ">
+								<h3 className="text-xl">Questions</h3>
+								<button
+									className="row-start-3 col-span-2 text-white bg-blue-700 rounded text-center w-64 inline-block pt-2 pb-2 ml-5 flex justify-center"
+									type="button"
+									onClick={() => setQuestionNum((prev) => prev + 1)}
+								>
+									Add Question
+								</button>
+							</div>
+
+							{Array.from({ length: questionNum }, (_, i, ind = i + 1) => (
+								<FormGroup
+									key={i}
+									label={`Question ${ind}`}
+									name={`question${ind}`}
+									value={values[`question${ind}`] || ""}
+									onChange={handleInputChange}
+								/>
+							))}
+						</div>
+						<button
+							className="row-start-4 text-white bg-blue-700 rounded text-center w-64 inline-block pt-2 pb-2"
+							type="submit"
+						>
+							Save
+						</button>
 					</div>
-					<div className="mt-6">
-						<label htmlFor="duration">Duration</label>
-						<input
-							className="border border-indigo-800 border-1 ml-10 w-[60vw] max-w-[300px]"
-							required
-							type="number"
-							name="duration"
-							id="duration"
-						></input>
-					</div>
-					<div className="my-6">
-						<label htmlFor="description">Description</label>
-						<textarea
-							className="border border-indigo-800 border-1 ml-5 w-[60vw] max-w-[300px]"
-							required
-							type="text"
-							name="description"
-							id="description"
-						></textarea>
-					</div>
-					<button
-						className="text-white bg-blue-700 rounded text-center w-64 inline-block pt-2 pb-2 mt-3"
-						type="button"
-						onClick={() => setQuestionNum((prev) => prev + 1)}
-					>
-						Add Question
-					</button>
-					<div className="mt-12 mb-5" id="questionList">
-						{Array.from({ length: questionNum }, (_, i, ind = i + 1) => (
-							<FormGroup
-								key={i}
-								label={`Question ${ind}`}
-								name={`question${ind}`}
-								value={values[`question${ind}`] || ""}
-								onChange={handleInputChange}
-							/>
-						))}
-					</div>
-					<button
-						className="text-white bg-blue-700 rounded text-center w-64 inline-block pt-2 pb-2"
-						type="submit"
-					>
-						Save
-					</button>
 				</div>
 			</form>
 		</>
