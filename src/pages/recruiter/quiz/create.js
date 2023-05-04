@@ -108,7 +108,7 @@ export default function CreateQuiz() {
 					<div>
 						<label htmlFor="name">Name</label>
 						<input
-							className="border border-indigo-800 border-1 ml-14 w-[60vw]"
+							className="border border-indigo-800 border-1 ml-14 w-[60vw] max-w-[300px]"
 							required
 							type="text"
 							name="name"
@@ -118,7 +118,7 @@ export default function CreateQuiz() {
 					<div className="mt-6">
 						<label htmlFor="duration">Duration</label>
 						<input
-							className="border border-indigo-800 border-1 ml-10 w-[60vw]"
+							className="border border-indigo-800 border-1 ml-10 w-[60vw] max-w-[300px]"
 							required
 							type="number"
 							name="duration"
@@ -128,7 +128,7 @@ export default function CreateQuiz() {
 					<div className="my-6">
 						<label htmlFor="description">Description</label>
 						<textarea
-							className="border border-indigo-800 border-1 ml-5 w-[60vw]"
+							className="border border-indigo-800 border-1 ml-5 w-[60vw] max-w-[300px]"
 							required
 							type="text"
 							name="description"
