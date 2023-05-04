@@ -101,6 +101,8 @@ export default function EditQuiz(props) {
 				<input type="hidden" name="id" defaultValue={props.quizId}></input>
 
 				<div className="flex flex-col gap-3 ml-5 md:ml-12 mt-6">
+					<h3 className="text-xl mb-4 underline">Info</h3>
+
 					<input
 						className="text-lg border w-[350px] md:w-[400px] h-10 pl-3"
 						type="text"
@@ -126,15 +128,15 @@ export default function EditQuiz(props) {
 				</div>
 
 				<button
-					className="text-white bg-blue-700 rounded text-center w-full inline-block pt-2 pb-2 w-48 ml-5 md:ml-12 mb-8 mt-8 md:mb-16 w-56"
+					className="text-white bg-blue-700 rounded text-center inline-block pt-2 pb-2 w-24 ml-5 md:ml-12 mb-8 mt-12 md:mb-12 w-56"
 					type="submit"
 				>
 					Update Quiz
 				</button>
 			</form>
 
-			<div className="max-w-7xl md:px-12 flex flex-col gap-3 ml-5 md:ml-12 mt-6">
-				<h3 className="text-xl mb-8 underline">Questions</h3>
+			<div className="max-w-7xl flex flex-col gap-3 ml-5 md:ml-12 mt-6">
+				<h3 className="text-xl mb-4 underline">Questions</h3>
 				{props.questions.length > 0 &&
 					props.questions.map((question, index) => (
 						<form
@@ -155,7 +157,7 @@ export default function EditQuiz(props) {
 								defaultValue={question[index].question}
 							></input>
 							<button
-								className="text-white bg-blue-700 rounded text-center w-full inline-block pt-2 pb-2 w-64"
+								className="text-white bg-blue-700 rounded text-center w-24 inline-block pt-2 pb-2 w-64"
 								type="submit"
 							>
 								Update Question
