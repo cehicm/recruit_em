@@ -12,7 +12,7 @@
 ## Contributing
 Feel like contributing? That's awesome!
 
-Thanks for showing interest to contribute to AlertIt 💖, you rock!
+Thanks for showing interest to contribute to RecruitEm 💖, you rock!
 
 There are different ways you can contribute, all of which are valuable:
 - Fork the project
