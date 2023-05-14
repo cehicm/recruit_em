@@ -53,70 +53,100 @@ export default function CreateUser(props) {
 			</Head>
 			<RecruiterNavigation />
 
-			<form
-				className="max-w-7xl mx-auto px-4 md:px-12"
-				method="POST"
-				onSubmit={submitForm}
-			>
-				<h1 className="text-5xl my-8 md:my-16">New User</h1>
-				<div>
-					<label htmlFor="firstName">First Name</label>
-					<input required type="text" name="firstName" id="firstName"></input>
+			<form method="POST" onSubmit={submitForm}>
+				<div className="md:pt-10 lg:mb-12 border border-blue-900 md:rounded-3xl bg-indigo-600 text-white text-center">
+					<h1 className="text-xl md:text-3xl text-5xl my-8 md:my-16">
+						New User
+					</h1>
 				</div>
 
-				<div>
-					<label htmlFor="lastName">Last Name</label>
-					<input required type="text" name="lastName" id="lastName"></input>
-				</div>
+				<div className="max-w-7xl md:w-3/4 mx-auto pt-5">
+					<div className="flex gap-8 items-center justify-between mx-6 my-4">
+						<label htmlFor="firstName">First Name</label>
+						<input
+							required
+							type="text"
+							name="firstName"
+							id="firstName"
+							className="border border-indigo-800 border-1 md:w-3/4 py-4 pl-4"
+						></input>
+					</div>
 
-				<div>
-					<label htmlFor="email">Email</label>
-					<input required type="email" name="email" id="email"></input>
-				</div>
+					<div className="flex gap-8 items-center justify-between mx-6 my-4">
+						<label htmlFor="lastName">Last Name</label>
+						<input
+							required
+							type="text"
+							name="lastName"
+							id="lastName"
+							className="border border-indigo-800 border-1 md:w-3/4 py-4 pl-4"
+						></input>
+					</div>
 
-				<div>
-					<label htmlFor="password">Password</label>
-					<input required type="password" name="password" id="password"></input>
-				</div>
+					<div className="flex gap-8 items-center justify-between mx-6 my-4">
+						<label htmlFor="email">Email</label>
+						<input
+							required
+							type="email"
+							name="email"
+							id="email"
+							className="border border-indigo-800 border-1 md:w-3/4 py-4 pl-4"
+						></input>
+					</div>
 
-				<div className="flex items-center gap-12 pl-2 w-1/2 mt-6">
-					<label htmlFor="role">Role</label>
-					<select
-						className="bg-gray-600 text-white px-5 py-2 rounded-md"
-						name="role"
-						id="role"
-						required
-						multiple={false}
+					<div className="flex gap-8 items-center justify-between mx-6 my-4">
+						<label htmlFor="password">Password</label>
+						<input
+							required
+							type="password"
+							name="password"
+							id="password"
+							className="border border-indigo-800 border-1 md:w-3/4 py-4 pl-4"
+						></input>
+					</div>
+					<div className="flex items-center mx-6 my-4 mt-6">
+						<label htmlFor="role" className="mr-24">
+							Role
+						</label>
+						<select
+							className="bg-gray-600 text-white px-5 py-2 rounded-md"
+							name="role"
+							id="role"
+							required
+							multiple={false}
+						>
+							<option value="candidate">Candidate</option>
+							<option value="recruiter">Recruiter</option>
+						</select>
+					</div>
+
+					<div className="flex items-center mx-6 my-4">
+						<label htmlFor="position" className="mr-[4.5rem]">
+							Position
+						</label>
+						<select
+							className="bg-gray-600 text-white px-5 py-2 rounded-md"
+							name="position"
+							id="position"
+							required
+							multiple={false}
+						>
+							{props.positions.length > 0 &&
+								props.positions.map((position) => (
+									<option key={position._id} value={position._id}>
+										{position.name}
+									</option>
+								))}
+						</select>
+					</div>
+
+					<button
+						className="text-white bg-blue-700 rounded text-center inline-block pt-2 pb-2 w-32 ml-6 mt-6"
+						type="submit"
 					>
-						<option value="candidate">Candidate</option>
-						<option value="recruiter">Recruiter</option>
-					</select>
+						Save
+					</button>
 				</div>
-
-				<div className="flex items-center gap-12 pl-2 w-1/2 mt-6">
-					<label htmlFor="position">Position</label>
-					<select
-						className="bg-gray-600 text-white px-5 py-2 rounded-md"
-						name="position"
-						id="position"
-						required
-						multiple={false}
-					>
-						{props.positions.length > 0 &&
-							props.positions.map((position) => (
-								<option key={position._id} value={position._id}>
-									{position.name}
-								</option>
-							))}
-					</select>
-				</div>
-
-				<button
-					className="text-white bg-blue-700 rounded text-center w-full inline-block pt-2 pb-2"
-					type="submit"
-				>
-					Save
-				</button>
 			</form>
 		</>
 	);
