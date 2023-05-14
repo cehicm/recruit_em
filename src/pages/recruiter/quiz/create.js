@@ -147,7 +147,7 @@ export default function CreateQuiz() {
 							className="flex flex-col mt-12 mb-5 row-start-3 col-span-2"
 							id="questionList"
 						>
-							<div className="flex mb-8">
+							<div className="flex mb-8 md:mb-12 md:justify-between">
 								<h3 className="text-xl">Questions</h3>
 								<button
 									className="row-start-3 col-span-2 text-white bg-blue-700 rounded text-center w-64 inline-block ml-5 pt-2 pb-2 flex justify-center"
