@@ -60,7 +60,7 @@ export default function CreateUser(props) {
 					</h1>
 				</div>
 
-				<div className="max-w-7xl md:w-3/4 mx-auto pt-5">
+				<div className="max-w-[50rem] md:w-3/4 mx-auto pt-5">
 					<div className="flex gap-8 items-center justify-between mx-6 my-4">
 						<label htmlFor="firstName">First Name</label>
 						<input
@@ -104,8 +104,8 @@ export default function CreateUser(props) {
 							className="border border-indigo-800 border-1 md:w-3/4 py-4 pl-4"
 						></input>
 					</div>
-					<div className="flex items-center mx-6 my-4 mt-6">
-						<label htmlFor="role" className="mr-24">
+					<div className="flex items-center mx-6 my-4 mt-6 lg:mt-8">
+						<label htmlFor="role" className="mr-24 lg:mr-[9rem]">
 							Role
 						</label>
 						<select
@@ -121,7 +121,7 @@ export default function CreateUser(props) {
 					</div>
 
 					<div className="flex items-center mx-6 my-4">
-						<label htmlFor="position" className="mr-[4.5rem]">
+						<label htmlFor="position" className="mr-[4.5rem] lg:mr-[7.5rem]">
 							Position
 						</label>
 						<select
