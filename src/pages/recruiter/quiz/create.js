@@ -105,11 +105,13 @@ export default function CreateQuiz() {
 				</div>
 
 				<div className="max-w-7xl mx-auto px-4 md:px-12 mt-12">
-					<div className="grid grid-cols-2 gap-5 items-center justify-center w-4/5 mx-auto">
+					<div className="flex flex-col gap-5 lg:grid grid-cols-2 gap-5 justify-center w-4/5 mx-auto">
 						<div className="flex flex-col">
-							<label htmlFor="name">Name</label>
+							<label className="mb-2" htmlFor="name">
+								Name
+							</label>
 							<input
-								className="border border-indigo-800 border-1 w-[60vw] max-w-[250px]"
+								className="border border-indigo-800 border-1 w-full py-4 pl-4"
 								required
 								type="text"
 								name="name"
@@ -117,19 +119,23 @@ export default function CreateQuiz() {
 							></input>
 						</div>
 						<div className="flex flex-col">
-							<label htmlFor="duration">Duration</label>
+							<label className="mb-2" htmlFor="duration">
+								Duration
+							</label>
 							<input
-								className="border border-indigo-800 border-1 w-[60vw] max-w-[250px]"
+								className="border border-indigo-800 border-1 w-full py-2 pl-4"
 								required
 								type="number"
 								name="duration"
 								id="duration"
 							></input>
 						</div>
-						<div className="flex flex-col">
-							<label htmlFor="description">Description</label>
+						<div className="flex flex-col col-span-2">
+							<label className="mb-2" htmlFor="description">
+								Description
+							</label>
 							<textarea
-								className="border border-indigo-800 border-1 w-[60vw] max-w-[300px]"
+								className="border border-indigo-800 border-1 w-[60vw] py-4 pl-4 w-full"
 								required
 								type="text"
 								name="description"
@@ -138,10 +144,10 @@ export default function CreateQuiz() {
 						</div>
 
 						<div
-							className="mt-12 mb-5 row-start-3 col-span-2"
+							className="flex flex-col mt-12 mb-5 row-start-3 col-span-2"
 							id="questionList"
 						>
-							<div className="flex mb-8 ">
+							<div className="flex mb-8">
 								<h3 className="text-xl">Questions</h3>
 								<button
 									className="row-start-3 col-span-2 text-white bg-blue-700 rounded text-center w-64 inline-block ml-5 pt-2 pb-2 flex justify-center"
