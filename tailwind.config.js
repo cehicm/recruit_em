@@ -18,6 +18,7 @@ module.exports = {
 			},
 			colors: {
 				"recruit-blue": "#1c1a4d",
+				"dark-blue": "#050529"
 			},
 			keyframes: {
 				wiggle: {
