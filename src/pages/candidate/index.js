@@ -13,7 +13,7 @@ export default function Candidate(props) {
 
 				<div className="flex flex-col p-8 border-b border-b-dark-blue">
 					{props.positions.length > 0 &&
-						props.positions.map((position) => (
+						props.positions.map(position => (
 							<div key={position._id} className="flex flex-col gap-4">
 								<h3>Position</h3>
 								<p>Name: {position.name}</p>
@@ -21,10 +21,13 @@ export default function Candidate(props) {
 								<p>Created at: {position.createdAt}</p>
 								<p>Description: {position.description}</p>
 								{position.quiz.length > 0 &&
-									position.quiz.map((quiz) => (
+									position.quiz.map(quiz => (
 										<Link
 											key={quiz}
-											href={`/candidate/quiz/${quiz}`}
+											href={{
+												pathname: `/candidate/quiz/${quiz}`,
+												query: position,
+											}}
 											className="bg-dark-blue text-white w-32 py-2 px-6"
 										>
 											Start Quiz
@@ -58,21 +61,21 @@ export async function getServerSideProps(context) {
 				redirect: "follow",
 			}
 		)
-			.then((response) => response.json())
-			.then((result) => {
+			.then(response => response.json())
+			.then(result => {
 				return result.data;
 			})
-			.catch((error) => console.log("error", error));
+			.catch(error => console.log("error", error));
 
 		const positions = await fetch(
 			process.env.SITE_URI + "/api/position?id=" + user[0].position,
 			requestOptions
 		)
-			.then((response) => response.json())
-			.then((result) => {
+			.then(response => response.json())
+			.then(result => {
 				return result.data;
 			})
-			.catch((error) => console.log("error", error));
+			.catch(error => console.log("error", error));
 
 		return {
 			props: {

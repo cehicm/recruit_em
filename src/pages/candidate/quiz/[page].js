@@ -1,11 +1,14 @@
 import { getSession } from "next-auth/react";
+import { useRouter } from "next/router";
 
 const CandidateQuiz = props => {
+	const router = useRouter();
+	const positionData = router.query;
 	const onSubmit = event => {
 		event.preventDefault();
 		var data = new FormData(event.target);
 		let formObject = Object.fromEntries(data.entries());
-		console.log(formObject);
+		console.log(formObject, positionData);
 	};
 	return (
 		<>
