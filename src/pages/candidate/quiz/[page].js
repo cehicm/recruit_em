@@ -1,25 +1,37 @@
 import { getSession } from "next-auth/react";
 
 const CandidateQuiz = props => {
+	const onSubmit = event => {
+		event.preventDefault();
+		var data = new FormData(event.target);
+		let formObject = Object.fromEntries(data.entries());
+		console.log(formObject);
+	};
 	return (
 		<>
 			{props.quiz.length > 0 &&
 				props.quiz.map(quiz => (
-					<div key={quiz._id}>
+					<form key={quiz._id} onSubmit={onSubmit}>
 						<p>Name: {quiz.name}</p>
 						<p>Duration: {quiz.duration}</p>
 						<p>Created at: {quiz.createdAt}</p>
 						<p>Description: {quiz.description}</p>
-						<hr/>
+						<hr />
 						{props.questions.length > 0 &&
 							props.questions.map(question => (
-								<div key={question._id}>
-									<p>ID: {question._id}</p>
-									<p>Question: {question.question}</p>
-									<p>Type: {question.type}</p>
+								<div key={question._id} question-id={question._id}>
+									<label htmlFor={question._id}>{question.question}</label>
+									{question.type == "text" && (
+										<input
+											type="text"
+											id={question._id}
+											name={question._id}
+										></input>
+									)}
 								</div>
 							))}
-					</div>
+						<button type="submit">Submit</button>
+					</form>
 				))}
 		</>
 	);
