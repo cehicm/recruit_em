@@ -3,6 +3,7 @@ import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import Resume from "@/components/Resume";
 import OpenPositions from "@/components/OpenPositions";
+import OpenSource from "@/components/OpenSource";
 
 export default function Home() {
 	return (
@@ -11,6 +12,7 @@ export default function Home() {
 			<Hero />
 			<Resume />
 			<OpenPositions />
+			<OpenSource />
 		</>
 	);
 }
