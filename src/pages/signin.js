@@ -16,7 +16,7 @@ export default function SignIn({ csrfToken }) {
 				action="/api/auth/callback/credentials"
 				className="bg-dark-blue text-white flex flex-col h-screen items-end"
 			>
-				<div className="z-10 flex rounded-xl w-[60vw] m-auto mt-16 md:m-auto border-xl p-6 md:p-8 bg-white text-black h-[50vh]">
+				<div className="z-10 flex rounded-xl w-[90vw] md:w-[60vw] m-auto mt-16 md:m-auto border-xl p-6 md:p-8 bg-white text-black h-[50vh]">
 					<div className="m-auto flex flex-col h-full max-h-64 gap-8 items-center">
 						<input name="csrfToken" type="hidden" defaultValue={csrfToken} />
 						<label className="flex flex-col gap-3 md:flex-row justify-between items-center h-min lg:w-full">
