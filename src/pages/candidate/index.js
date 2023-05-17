@@ -4,22 +4,35 @@ import Link from "next/link";
 export default function Candidate(props) {
 	return (
 		<>
-			Welcome {props.firstName} {props.lastName}
-			<div>
-				<h1>Position</h1>
-				{props.positions.length > 0 &&
-					props.positions.map(position => (
-						<div key={position._id}>
-							<p>Name: {position.name}</p>
-							<p>Status: {position.status}</p>
-							<p>Created at: {position.createdAt}</p>
-							<p>Description: {position.description}</p>
-							{position.quiz.length > 0 &&
-								position.quiz.map(quiz => (
-									<Link key={quiz} href={`/candidate/quiz/${quiz}`}>Start Quiz</Link>
-								))}
-						</div>
-					))}
+			<div className="">
+				<div className="bg-dark-blue text-white">
+					<h2 className="text-xl py-6 pl-8">
+						Welcome {props.firstName} {props.lastName}
+					</h2>
+				</div>
+
+				<div className="flex flex-col p-8 border-b border-b-dark-blue">
+					{props.positions.length > 0 &&
+						props.positions.map((position) => (
+							<div key={position._id} className="flex flex-col gap-4">
+								<h3>Position</h3>
+								<p>Name: {position.name}</p>
+								<p>Status: {position.status}</p>
+								<p>Created at: {position.createdAt}</p>
+								<p>Description: {position.description}</p>
+								{position.quiz.length > 0 &&
+									position.quiz.map((quiz) => (
+										<Link
+											key={quiz}
+											href={`/candidate/quiz/${quiz}`}
+											className="bg-dark-blue text-white w-32 py-2 px-6"
+										>
+											Start Quiz
+										</Link>
+									))}
+							</div>
+						))}
+				</div>
 			</div>
 		</>
 	);
@@ -45,21 +58,21 @@ export async function getServerSideProps(context) {
 				redirect: "follow",
 			}
 		)
-			.then(response => response.json())
-			.then(result => {
+			.then((response) => response.json())
+			.then((result) => {
 				return result.data;
 			})
-			.catch(error => console.log("error", error));
+			.catch((error) => console.log("error", error));
 
 		const positions = await fetch(
 			process.env.SITE_URI + "/api/position?id=" + user[0].position,
 			requestOptions
 		)
-			.then(response => response.json())
-			.then(result => {
+			.then((response) => response.json())
+			.then((result) => {
 				return result.data;
 			})
-			.catch(error => console.log("error", error));
+			.catch((error) => console.log("error", error));
 
 		return {
 			props: {
