@@ -25,7 +25,7 @@ export default function Reviews(props) {
 								<p>{review.position}</p>
 								<Link
 									className="text-white bg-blue-700 rounded text-center w-full inline-block py-2 mt-7"
-									href={`/recruiter/reviews/edit/${review._id}`}
+									href={`/recruiter/reviews/${review._id}`}
 								>
 									Edit Review
 								</Link>
