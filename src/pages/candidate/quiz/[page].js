@@ -6,9 +6,45 @@ const CandidateQuiz = props => {
 	const positionData = router.query;
 	const onSubmit = event => {
 		event.preventDefault();
+		const SITE_URI = process.env.SITE_URI;
 		var data = new FormData(event.target);
 		let formObject = Object.fromEntries(data.entries());
-		console.log(formObject, positionData);
+
+		let answers = [];
+		for (var key of Object.keys(formObject)) {
+			answers.push({
+				id: key,
+				answer: formObject[key],
+			});
+		}
+
+		var myHeaders = new Headers();
+		myHeaders.append("Content-Type", "application/json");
+
+		var raw = JSON.stringify({
+			user: props.id,
+			position: positionData._id,
+			answers: answers,
+			pipeline: "Started",
+			status: "Open",
+			started: "Open",
+		});
+
+		var requestOptions = {
+			method: "POST",
+			headers: myHeaders,
+			body: raw,
+			redirect: "follow",
+		};
+
+		fetch(SITE_URI + "/api/review", requestOptions)
+			.then((response) => response.json())
+			.then((result) => {
+				if (result.data._id) {
+					console.log("New Review Created");
+				}
+			})
+			.catch((error) => console.log("error", error));
 	};
 	return (
 		<>
@@ -29,6 +65,7 @@ const CandidateQuiz = props => {
 											type="text"
 											id={question._id}
 											name={question._id}
+											question={question.question}
 										></input>
 									)}
 								</div>
