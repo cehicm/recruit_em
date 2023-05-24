@@ -14,9 +14,6 @@ const ReviewSchema = new mongoose.Schema(
 		},
 		answers: [
 			{
-				question: {
-					type: String,
-				},
 				id: {
 					type: String,
 				},
