@@ -1,9 +1,17 @@
 import { getSession } from "next-auth/react";
 import { useRouter } from "next/router";
+import { useEffect } from "react";
 
 const CandidateQuiz = props => {
 	const router = useRouter();
 	const positionData = router.query;
+
+	useEffect(() => {
+		if (!localStorage.getItem(props.id)) {
+			localStorage.setItem(props.id, Date.now());
+		}
+	}, [props]);
+
 	const onSubmit = event => {
 		event.preventDefault();
 		const SITE_URI = process.env.SITE_URI;
@@ -27,7 +35,7 @@ const CandidateQuiz = props => {
 			answers: answers,
 			pipeline: "Started",
 			status: "Open",
-			started: "Open",
+			started: localStorage.getItem(props.id),
 		});
 
 		var requestOptions = {
@@ -38,13 +46,13 @@ const CandidateQuiz = props => {
 		};
 
 		fetch(SITE_URI + "/api/review", requestOptions)
-			.then((response) => response.json())
-			.then((result) => {
+			.then(response => response.json())
+			.then(result => {
 				if (result.data._id) {
 					console.log("New Review Created");
 				}
 			})
-			.catch((error) => console.log("error", error));
+			.catch(error => console.log("error", error));
 	};
 	return (
 		<>
