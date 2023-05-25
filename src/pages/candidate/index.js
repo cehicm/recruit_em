@@ -26,7 +26,7 @@ export default function Candidate(props) {
 											key={quiz}
 											href={{
 												pathname: `/candidate/quiz/${quiz}`,
-												query: position,
+												query: `_id=${position._id}`,
 											}}
 											className="bg-dark-blue text-white w-32 py-2 px-6"
 										>
