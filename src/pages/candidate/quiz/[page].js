@@ -1,15 +1,20 @@
 import { getSession } from "next-auth/react";
 import { useRouter } from "next/router";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import Countdown from "react-countdown";
+import Router from "next/router";
 
 const CandidateQuiz = props => {
 	const router = useRouter();
 	const positionData = router.query;
 
+	const [timer, setTimer] = useState("");
+
 	useEffect(() => {
 		if (!localStorage.getItem(props.id)) {
 			localStorage.setItem(props.id, Date.now());
 		}
+		setTimer(localStorage.getItem(props.id));
 	}, [props]);
 
 	const onSubmit = event => {
@@ -54,6 +59,19 @@ const CandidateQuiz = props => {
 			})
 			.catch(error => console.log("error", error));
 	};
+
+	const renderer = ({ hours, minutes, seconds, completed }) => {
+		if (completed) {
+			Router.push("/candidate");
+		} else {
+			return (
+				<span>
+					{hours}:{minutes}:{seconds}
+				</span>
+			);
+		}
+	};
+
 	return (
 		<>
 			{props.quiz.length > 0 &&
@@ -63,6 +81,15 @@ const CandidateQuiz = props => {
 						<p>Duration: {quiz.duration}</p>
 						<p>Created at: {quiz.createdAt}</p>
 						<p>Description: {quiz.description}</p>
+						{timer ? (
+							<Countdown
+								date={parseInt(timer) + quiz.duration * 60 * 1000}
+								renderer={renderer}
+							/>
+						) : (
+							""
+						)}
+						,
 						<hr />
 						{props.questions.length > 0 &&
 							props.questions.map(question => (
