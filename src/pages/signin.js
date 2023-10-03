@@ -6,9 +6,13 @@ export default function SignIn({ csrfToken }) {
 	return (
 		<section className="bg-blue-200 relative">
 			<div className="bg-white md:w-[33vw] h-32 md:absolute h-[16vh] md:h-[45vh] lg:h-[80vh] top-[20%] md:top-[10%] rounded-r-xl lg:opacity-20">
-				<Image src={logo} className="mx-auto mt-8 md:mt-12" />
+				<Image
+					src={logo}
+					className="mx-auto mt-8 md:mt-12"
+					alt="recruitem logo"
+				/>
 				<p className="text-center px-10 pt-6 md:hidden">
-					The only recruiting tool you'll ever need.
+					The only recruiting tool you&apos;ll ever need.
 				</p>
 			</div>
 			<form
